@@ -15,7 +15,7 @@
     - name: Install project dependencies with pipenv
       command: pipenv install
       args:
-        chdir: /home/premsagar/pro-ansible/Pipfile
+        chdir: /pro-ansible/Pipfile
 
     - name: Run Django server
       command: pipenv run python manage.py runserver
