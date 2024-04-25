@@ -1,17 +1,26 @@
-- name: Setup Django 
+---
+- name: Setup Django
   hosts: prem
   become: yes
   gather_facts: no
 
   tasks:
-    - name: Install Python
+    - name: Install Python and pip
       package:
-        name: 
-            - python3
-            - pip install pipenv
-            - pipenv install
+        name:
+          - python3
+          - python3-pip
         state: present
 
+    - name: Install pipenv
+      pip:
+        name: pipenv
+
+    - name: Install project dependencies with pipenv
+      command: pipenv install
+      args:
+        chdir: /home/premsagar/pro-ansible/Pipfile
 
     - name: Run Django server
       command: pipenv run python manage.py runserver
+      
