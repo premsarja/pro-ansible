@@ -9,11 +9,13 @@
         name:
           - python3
           - python3-pip
+          - pip install pipenv
+          - pipenv install
         state: present
 
 
-    - name: Install project dependencies with pipenv
-      shell: pip install pipenv
+    # - name: Install project dependencies with pipenv
+    #   shell: pip install pipenv
 
     - name: Run Django server
       command: pipenv run python manage.py runserver
