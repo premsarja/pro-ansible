@@ -8,15 +8,18 @@
       package:
         name:
           - python3
-          - pip
-          - pip install pipenv
-          - pipenv install
+          - python3-pip
         state: present
 
+    - name: Install pipenv
+      pip:
+        name: pipenv
 
-    # - name: Install project dependencies with pipenv
-    #   shell: pip install pipenv
+    - name: Install project dependencies with pipenv
+      pipenv:
+        name: /pro-ansible/Pipfile
 
     - name: Run Django server
       command: pipenv run python manage.py runserver
-      
+      args:
+        chdir: /pro-ansible/manage.py
