@@ -11,16 +11,15 @@
           - python3-pip
         state: present
 
-- name: Install pipenv
-  pip:
-    name: pipenv
-    executable: "{{ ansible_python.executable }}"
+    - name: Install pipenv
+      pip:
+        name: pipenv
 
-- name: Install project dependencies with pipenv
-  pipenv:
-    requirements: /pro-ansible/Pipfile
+    - name: Install project dependencies with pipenv
+      pipenv:
+        requirements: /pro-ansible/Pipfile
 
-- name: Run Django server
-  command: pipenv run python manage.py runserver
-  args:
-    chdir: /pro-ansible
+    - name: Run Django server
+      command: pipenv run python manage.py runserver
+      args:
+        chdir: /pro-ansible
