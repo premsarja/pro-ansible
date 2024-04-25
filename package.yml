@@ -13,7 +13,8 @@
 
     - name: Install pipenv
       pip:
-        name: pipenv
+        name: pip install pipenv
+
 
     - name: Install project dependencies with pipenv
       pipenv:
