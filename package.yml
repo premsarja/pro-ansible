@@ -1,0 +1,17 @@
+- name: Setup Django 
+  hosts: prem
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Install Python
+      package:
+        name: 
+            - python3
+            - pip install pipenv
+            - pipenv install
+        state: present
+
+
+    - name: Run Django server
+      command: pipenv run python manage.py runserver
