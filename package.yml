@@ -9,12 +9,13 @@
         name:
           - python3
           - python3-pip
+          - pip install pipenv
+
         state: present
 
     - name: Install pipenv
       pip:
-        name: pip install pipenv
-
+        name: pipenv
 
     - name: Install project dependencies with pipenv
       pipenv:
